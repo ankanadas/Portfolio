@@ -611,9 +611,133 @@ section {
     font-size: 1.3rem;
 }
 
+/* Publications Section */
+.publications {
+    background: var(--bg-white);
+}
+
+.publication-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--primary-color);
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.publication-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.publication-icon {
+    flex-shrink: 0;
+}
+
+.publication-icon i {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.publication-content h3 {
+    color: var(--text-dark);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.publication-venue {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.publication-description {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.publication-meta {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.publication-year {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.publication-year i {
+    margin-right: 0.5rem;
+}
+
+.publication-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.publication-link:hover {
+    color: var(--secondary-color);
+}
+
+.publication-link i {
+    font-size: 0.9rem;
+}
+
 /* Skills Section */
 .skills {
     background: var(--bg-light);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tech-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.tech-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: center;
 }
 
 .skills-grid {
@@ -782,6 +906,20 @@ section {
         grid-template-columns: 1fr;
     }
 
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .tech-item {
+        padding: 1rem;
+    }
+
+    .tech-icon {
+        width: 50px;
+        height: 50px;
+    }
+
     .project-card {
         padding: 1.5rem;
     }
@@ -804,6 +942,26 @@ section {
 
     .project-metrics {
         flex-direction: column;
+    }
+
+    .publication-card {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .publication-icon i {
+        font-size: 2rem;
+    }
+
+    .publication-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .publication-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
     }
 }
 
