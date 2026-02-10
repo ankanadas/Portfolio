@@ -77,9 +77,17 @@ async function sendMessage() {
             body: JSON.stringify({ message })
         });
         
+        const data = await response.json();
+        
+        // Handle rate limit error
+        if (response.status === 429) {
+            removeTypingIndicator();
+            showError(data.message || 'Too many requests. Please try again later.');
+            return;
+        }
+        
         if (!response.ok) throw new Error(`API error: ${response.status}`);
         
-        const data = await response.json();
         removeTypingIndicator();
         addMessage(data.message, false);
         

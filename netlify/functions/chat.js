@@ -1,9 +1,58 @@
+// Simple in-memory rate limiter
+const rateLimitStore = new Map();
+const RATE_LIMIT = 6; // requests
+const RATE_WINDOW = 15 * 60 * 1000; // 15 minutes in milliseconds
+
+function checkRateLimit(identifier) {
+  const now = Date.now();
+  const userRequests = rateLimitStore.get(identifier) || [];
+  
+  // Remove requests older than the time window
+  const recentRequests = userRequests.filter(timestamp => now - timestamp < RATE_WINDOW);
+  
+  if (recentRequests.length >= RATE_LIMIT) {
+    const oldestRequest = Math.min(...recentRequests);
+    const timeUntilReset = Math.ceil((oldestRequest + RATE_WINDOW - now) / 60000); // minutes
+    return {
+      allowed: false,
+      timeUntilReset
+    };
+  }
+  
+  // Add current request
+  recentRequests.push(now);
+  rateLimitStore.set(identifier, recentRequests);
+  
+  return {
+    allowed: true,
+    remaining: RATE_LIMIT - recentRequests.length
+  };
+}
+
 exports.handler = async (event, context) => {
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
       body: JSON.stringify({ error: 'Method not allowed' })
+    };
+  }
+
+  // Rate limiting based on IP address
+  const userIP = event.headers['x-forwarded-for'] || event.headers['client-ip'] || 'unknown';
+  const rateLimitCheck = checkRateLimit(userIP);
+  
+  if (!rateLimitCheck.allowed) {
+    return {
+      statusCode: 429,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify({
+        error: 'rate_limit_exceeded',
+        message: `You've reached the limit of ${RATE_LIMIT} questions per 15 minutes. Please try again in ${rateLimitCheck.timeUntilReset} minute${rateLimitCheck.timeUntilReset > 1 ? 's' : ''}.`
+      })
     };
   }
 
