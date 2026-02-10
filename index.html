@@ -38,6 +38,25 @@
                     <a href="https://github.com/ankanadas" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     <a href="mailto:ankanatdas@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
+                
+                <!-- AI Chat Messages Area -->
+                <div id="hero-chat-messages" class="hero-chat-messages"></div>
+                
+                <!-- AI Chat Input -->
+                <div class="hero-chat-input-wrapper">
+                    <div class="hero-chat-input-container">
+                        <input 
+                            type="text" 
+                            id="hero-chat-input" 
+                            class="hero-chat-input" 
+                            placeholder="Ask AI anything about me..."
+                            aria-label="Chat input"
+                        />
+                        <button id="hero-chat-send" class="hero-chat-send" aria-label="Send message">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -432,5 +451,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="hero-chat.js"></script>
 </body>
 </html>
