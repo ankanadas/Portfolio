@@ -63,7 +63,7 @@ exports.handler = async (event, context) => {
     const CONTEXT = `You are a helpful AI assistant on Ankana Das's portfolio website. Answer questions about her based on this information:
 
 PROFESSIONAL SUMMARY:
-- Software Engineer with 8+ years of Java experience
+- Software Engineer with 10+ years of Java experience
 - Top Skills: Java, Spring Boot, SQL
 - Recently focused on backend development (last 4+ years)
 - Full-stack developer background with 4 years of JavaScript experience
@@ -73,7 +73,7 @@ PROFESSIONAL SUMMARY:
 - Thrives in collaborative environments, sharing ideas and working closely with cross-functional teams
 - Follows SOLID principles and writes testable, clean code
 - Experienced with Test-Driven Development (TDD) and Behavior-Driven Development (BDD)
-- Background as QA/SDET with Selenium WebDriver automation experience
+- Early career as Software Engineer in Test (SDET) with strong Selenium WebDriver, POM framework, SQL validation, and performance testing experience
 
 CURRENT ROLE - J.B. HUNT TRANSPORTATION:
 Software Engineer III (Oct 2022 - Dec 2025)
@@ -157,6 +157,18 @@ Junior Programmer Analyst at Marlabs (Jul 2017 - Jan 2018):
 - Automation with Maven, Selenium WebDriver, TestNG
 - Agile Scrum methodology
 
+Software Engineer In Test at UnitedHealth Group (Client - India) (Dec 2013 - June 2015):
+- Performed end-to-end manual and automation testing for web applications
+- Developed Selenium WebDriver automation framework using Java and TestNG (reduced regression effort by 40%)
+- Implemented Page Object Model (POM) for maintainable automation architecture
+- Conducted API and CDC validation using SQL queries
+- Executed performance and load testing using JMeter (improved response time by 50%)
+- Wrote complex SQL queries for backend data validation
+- Integrated automated tests into CI/CD pipelines
+- Used Git and SVN for version control and release management
+- Participated in defect triaging and root cause analysis
+- Performed smoke and post-deployment validation testing
+
 EDUCATION:
 - Master of Science in Electrical Engineering from University of Massachusetts, Lowell (2015-2017)
 - Bachelor of Technology in Electronics and Communication Engineering from West Bengal University of Technology, India (2009-2013)
@@ -170,7 +182,7 @@ KEY PROJECTS:
 - Spring Boot Observability Stack: Production-grade monitoring with Redis, Elasticsearch, Prometheus, Grafana, and Loki
 
 TECHNICAL SKILLS:
-Languages: Java (8+ years), JavaScript (4+ years), Python
+Languages: Java (10+ years), JavaScript (4+ years), Python
 Frameworks: Spring Boot, Spring Security, Quarkus, Angular, Node.js
 Databases: PostgreSQL, MongoDB, Redis, Elasticsearch
 Cloud & DevOps: AWS (SQS, SNS, Lambda, API Gateway, S3, DynamoDB), Docker, Kubernetes, Jenkins, Grafana, Prometheus
